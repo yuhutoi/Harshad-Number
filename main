@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  int N, a;
+  cin >> N;
+  
+  int b = N;
+
+  for (int i = 9; i > 0; i--) {
+	int digit = 1;
+    
+    for (int j = 0; j < (i - 1); j++) {
+      digit *= 10;
+    }
+    
+    if (b >= digit) {
+      a += (b - b % digit) / digit;
+      b = b % digit;
+    }
+  }
+  
+  if (N % a == 0) {
+    cout << "Yes" << endl;
+  } else {
+    cout << "No" << endl;
+  }
+  
+  return 0;
+}
